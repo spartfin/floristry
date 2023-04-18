@@ -1,6 +1,6 @@
-@include fontface(NotoSans, NotoSans, NotoSans, 400, 'normal');
-@include fontface(NotoSans, NotoSans-Medium, NotoSans-Medium, 500, 'normal');
-@include fontface(NotoSans, NotoSans-Bold, NotoSans-Bold, 700, 'normal');
+@include fontface(NotoSans, NotoSans, NotoSans, 400, "normal");
+@include fontface(NotoSans, NotoSans-Medium, NotoSans-Medium, 500, "normal");
+@include fontface(NotoSans, NotoSans-Bold, NotoSans-Bold, 700, "normal");
 
 ::selection {
     color: $colorWhite;
@@ -475,7 +475,7 @@ svg {
             padding-left: 56px;
 
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 top: 50%;
                 left: 24px;
@@ -490,7 +490,7 @@ svg {
             &--selected {
                 &::before {
                     background-color: $colorPrimary;
-                    background-image: url('assets/sprite/svg/check.svg');
+                    background-image: url("assets/sprite/svg/check.svg");
                     background-repeat: no-repeat;
                     background-position: center;
                 }
@@ -502,7 +502,7 @@ svg {
         position: relative;
 
         &::before {
-            content: 'до';
+            content: "до";
             position: absolute;
             top: 50%;
             left: 24px;
@@ -516,7 +516,7 @@ svg {
 
         &:first-child {
             &::before {
-                content: 'от';
+                content: "от";
             }
         }
 
@@ -605,7 +605,7 @@ svg {
     }
 
     &::before {
-        content: 'до';
+        content: "до";
         position: absolute;
         z-index: 1;
         top: 50%;
@@ -620,7 +620,7 @@ svg {
 
     &:first-child {
         &::before {
-            content: 'от';
+            content: "от";
         }
     }
 

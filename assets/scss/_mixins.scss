@@ -1,7 +1,6 @@
-
 @mixin clearfix {
     &::after {
-        content: '';
+        content: "";
         clear: both;
         display: table !important;
         height: 0 !important;
@@ -14,9 +13,7 @@
         @media (min-width: #{$from - 0.9}px) and (max-width: #{$to + 0.9}px) {
             @content;
         }
-    }
-
-    @else {
+    } @else {
         @media (max-width: #{$from + 0.9}px) {
             @content;
         }
@@ -28,9 +25,7 @@
         @media (min-height: #{$from - 0.9}px) and (max-height: #{$to + 0.9}px) {
             @content;
         }
-    }
-
-    @else {
+    } @else {
         @media (max-height: #{$from + 0.9}px) {
             @content;
         }
@@ -41,7 +36,8 @@
     @font-face {
         font-display: block;
         font-family: $family;
-        src: local('#{$localname}'), url('../../assets/fonts/#{$filename}.woff2') format('woff2');
+        src: local("#{$localname}"),
+            url("../../assets/fonts/#{$filename}.woff2") format("woff2");
         font-weight: $weight;
         font-style: $style;
     }
