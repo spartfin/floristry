@@ -1,17 +1,30 @@
 {
-  "name": "nuxt-app",
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@types/node": "^18",
-    "nuxt": "^3.4.1",
-    "sass": "^1.62.0",
-    "sass-loader": "^10.4.1"
-  }
+    "name": "nuxt-app",
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "stylelint": "stylelint **/*.{scss,vue}"
+    },
+    "pre-commit": [
+        "stylelint"
+    ],
+    "devDependencies": {
+        "@nuxtjs/stylelint-module": "^5.0.1",
+        "@types/node": "^18",
+        "nuxt": "^3.4.1",
+        "sass": "^1.62.0",
+        "sass-loader": "^10.4.1"
+    },
+    "dependencies": {
+        "postcss-html": "^1.5.0",
+        "postcss-scss": "^4.0.6",
+        "pre-commit": "^1.2.2",
+        "stylelint": "^15.5.0",
+        "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
+        "stylelint-order": "^6.0.3"
+    }
 }

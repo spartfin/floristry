@@ -9,9 +9,12 @@ export default defineNuxtConfig({
                     additionalData: `
                         @import "@/assets/scss/_mixins.scss";
                         @import "@/assets/scss/_variables.scss";
-                    `
+                    `,
                 },
             },
         },
     },
-})
+    modules: [
+        '@nuxtjs/stylelint-module'
+    ],
+});
