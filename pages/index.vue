@@ -9,6 +9,6 @@
 
 <style lang="scss" scoped>
 .home {
-    color: #000
+    color: #000;
 }
 </style>
