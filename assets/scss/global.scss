@@ -1,6 +1,4 @@
-@include fontface(NotoSans, NotoSans, NotoSans, 400, "normal");
-@include fontface(NotoSans, NotoSans-Medium, NotoSans-Medium, 500, "normal");
-@include fontface(NotoSans, NotoSans-Bold, NotoSans-Bold, 700, "normal");
+@include fontface(Forum, Forum, Forum, 400, "normal");
 
 ::selection {
     color: $colorWhite;
@@ -8,6 +6,7 @@
 }
 
 html {
+    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -21,11 +20,11 @@ html {
 body {
     position: relative;
     min-height: 100%;
-    font-family: $NotoSans;
-    font-size: 16px;
-    line-height: calc(24 / 16);
-    font-weight: 500;
-    color: $colorDark;
+    font-family: $Forum;
+    font-size: 18px;
+    line-height: calc(18 / 27);
+    font-weight: 400;
+    color: $colorWhite;
     pointer-events: unset !important;
     overflow: hidden scroll;
 
@@ -54,11 +53,12 @@ body {
 a {
     text-decoration: none !important;
     color: inherit;
-    transition: 0.45s;
+    transition: 0.3s;
 
     &:hover,
     &:active {
         color: inherit;
+        opacity: 0.7;
     }
 }
 
@@ -86,13 +86,13 @@ input,
 textarea {
     display: block;
     width: 100%;
-    padding: 15px 24px;
-    font-family: $NotoSans;
-    font-size: 16px;
-    line-height: calc(24 / 16);
+    padding: 20px 32px;
+    font-family: $Forum;
+    font-size: 20px;
+    line-height: calc(20 / 22);
     font-weight: 400;
-    border: 1px solid $colorGrayLight;
-    border-radius: 4px;
+    color: $colorWhite;
+    border: 1px solid $colorGrayDark;
     transition: border 0.45s $easeInOutCirc;
 
     &::-ms-clear {
@@ -130,30 +130,30 @@ textarea {
     }
 
     &::placeholder {
-        color: $colorGray;
+        color: $colorWhite;
     }
 
     &::-webkit-input-placeholder {
-        color: $colorGray;
+        color: $colorWhite;
         opacity: 1;
     }
 
     &:-moz-placeholder {
-        color: $colorGray;
+        color: $colorWhite;
         opacity: 1;
     }
 
     &::-moz-placeholder {
-        color: $colorGray;
+        color: $colorWhite;
         opacity: 1;
     }
 
     &:hover {
-        border-color: $colorPrimary;
+        border-color: $colorWhite;
     }
 
     &:focus {
-        border-color: $colorPrimary;
+        border-color: $colorWhite;
     }
 
     &.is-error {
@@ -184,8 +184,9 @@ textarea {
 }
 
 .container {
-    max-width: 1280px;
-    padding: 0 24px;
+    width: 100%;
+    max-width: 1920px;
+    padding: 0 96px;
     margin: 0 auto;
 
     @include mq(1023) {
@@ -193,518 +194,15 @@ textarea {
     }
 
     @include mq(767) {
-        padding: 0 12px;
+        padding: 0 16px;
     }
-}
-
-.box-shadow {
-    border-radius: 8px;
-    box-shadow: 8px 8px 0 $colorDark;
-}
-
-.box-shadow-gray {
-    border: 1px solid $colorGrayLight;
-    border-radius: 8px;
-    background-color: $colorWhite;
-    box-shadow: 4px 4px 0 $colorGrayLight;
 }
 
 svg {
-    width: 24px;
-    height: 24px;
-    transition: 0.45s;
+    transition: 0.3s;
 
     path {
         stroke-width: inherit;
-        transition: 0.45s;
+        transition: 0.3s;
     }
-}
-
-/* Multiselect style */
-.multiselect-wrap {
-    position: relative;
-    width: 100%;
-}
-
-.multiselect-input-wrap {
-    position: relative;
-    display: flex;
-    width: calc(25% - 8px);
-}
-
-.multiselect-label {
-    position: absolute;
-    z-index: 1;
-    top: -11px;
-    left: 16px;
-    padding: 0 8px;
-    font-size: 14px;
-    line-height: calc(22 / 14);
-    font-weight: 400;
-    color: $colorGrayHard;
-    background-color: $colorWhite;
-}
-
-.multiselect-single {
-    display: flex;
-    font-size: 14px;
-    line-height: calc(22 / 14);
-    font-weight: 400;
-    color: $colorDark;
-
-    span {
-        display: flex;
-        align-items: center;
-        width: max-content;
-        padding: 1px 10px;
-        border-radius: 4px;
-        background-color: $colorLight;
-
-        &:first-child {
-            margin-right: 6px;
-        }
-    }
-
-    svg {
-        width: 16px;
-        height: 16px;
-        transition: 0.45s $easeInOutCirc;
-        margin-left: 4px;
-        cursor: pointer;
-
-        path {
-            transition: 0.45s $easeInOutCirc;
-        }
-
-        &:hover,
-        &:active {
-            path {
-                stroke: $colorPrimary;
-            }
-        }
-    }
-}
-
-.multiselect-tags-text {
-    max-width: 70px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.multiselect {
-    z-index: 0;
-    height: max-content;
-
-    &--active {
-        z-index: 2;
-
-        .multiselect__content-wrapper {
-            border-color: $colorPrimary;
-        }
-
-        .multiselect__tags {
-            border-color: $colorPrimary;
-            border-radius: 4px;
-        }
-
-        .multiselect__content-tags {
-            border-color: $colorPrimary;
-        }
-
-        + .multiselect-label {
-            z-index: 3;
-        }
-
-        .multiselect__input {
-            width: 98% !important;
-            padding: 0;
-            margin-bottom: 0;
-        }
-    }
-
-    &--disabled {
-        .multiselect__select {
-            background-color: transparent;
-
-            &::before {
-                border-color: $colorGray transparent transparent;
-            }
-        }
-
-        + .multiselect-label {
-            color: $colorGray;
-        }
-    }
-
-    &__tags {
-        display: block;
-        width: 100%;
-        height: 100%;
-        min-height: 56px;
-        padding: 15px 24px;
-        font-family: $NotoSans;
-        font-size: 16px;
-        line-height: calc(24 / 16);
-        font-weight: 400;
-        border: 1px solid $colorGrayLight;
-        border-radius: 4px !important;
-        transition: border 0.45s $easeInOutCirc;
-
-        &:hover {
-            border-color: $colorPrimary;
-        }
-    }
-
-    &--above {
-        .multiselect__content-wrapper {
-            border: 1px solid $colorPrimary !important;
-            border-radius: 5px !important;
-        }
-    }
-
-    &__content-wrapper {
-        top: 64px;
-        /* padding-right: 4px; */
-        min-height: 114px !important;
-        border: 1px solid $colorGrayLight;
-        border-radius: 4px;
-        background-color: $colorLight;
-
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-
-        &::-webkit-scrollbar {
-            width: 0;
-            height: 0;
-        }
-    }
-
-    &__content {
-        max-height: 224px !important;
-        transition: border 0.45s $easeInOutCirc;
-        overflow-x: hidden;
-        overflow-y: auto;
-        scrollbar-width: thin;
-
-        &::-webkit-scrollbar {
-            position: absolute;
-            right: -4px;
-            width: 4px;
-            min-width: 4px;
-        }
-
-        &::-webkit-scrollbar-track {
-            background-color: transparent;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: $colorDark;
-        }
-    }
-
-    &__select {
-        top: 8px;
-        right: 6px;
-        width: 38px;
-
-        &::before {
-            color: $colorDark;
-            border-width: 6px 6px 0;
-            border-color: $colorDark transparent transparent;
-        }
-    }
-
-    &__single {
-        width: 94%;
-        padding: 0;
-        color: $colorDark;
-        margin: 0;
-    }
-
-    &__placeholder {
-        padding: 0;
-        color: $colorGray;
-        margin: 0;
-    }
-
-    &::-webkit-input-placeholder {
-        color: $colorGray;
-        opacity: 1;
-    }
-
-    &:-moz-placeholder {
-        color: $colorGray;
-        opacity: 1;
-    }
-
-    &::-moz-placeholder {
-        color: $colorGray;
-        opacity: 1;
-    }
-
-    &__element {
-        background-color: $colorWhite;
-
-        &:nth-child(odd) {
-            background-color: $colorLight;
-        }
-    }
-
-    &__option {
-        padding: 16px 24px;
-        font-family: $NotoSans;
-        font-size: 16px;
-        line-height: calc(24 / 16);
-        font-weight: 400;
-        white-space: pre-wrap;
-        color: $colorDark !important;
-
-        &--selected {
-            background-color: transparent;
-        }
-
-        &--highlight {
-            background-color: $colorLightDark !important;
-        }
-    }
-
-    &.multiselect-tags {
-        .multiselect__option {
-            padding-left: 56px;
-
-            &::before {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 24px;
-                width: 16px;
-                height: 16px;
-                border: 1px solid $colorPrimary;
-                border-radius: 2px;
-                background-color: $colorWhite;
-                transform: translateY(-50%);
-            }
-
-            &--selected {
-                &::before {
-                    background-color: $colorPrimary;
-                    background-image: url("assets/sprite/svg/check.svg");
-                    background-repeat: no-repeat;
-                    background-position: center;
-                }
-            }
-        }
-    }
-
-    &__input-wrap {
-        position: relative;
-
-        &::before {
-            content: "до";
-            position: absolute;
-            top: 50%;
-            left: 24px;
-            font-family: $NotoSans;
-            font-size: 16px;
-            line-height: calc(24 / 16);
-            font-weight: 400;
-            color: $colorGray;
-            transform: translateY(-50%);
-        }
-
-        &:first-child {
-            &::before {
-                content: "от";
-            }
-        }
-
-        &:has(input:focus) {
-            &::before {
-                color: $colorDark;
-            }
-        }
-    }
-
-    &__input-from {
-        input {
-            padding-left: 48px;
-            border-right-color: transparent;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-
-            &:focus {
-                padding-left: 48px;
-            }
-        }
-
-        &:hover,
-        &:focus {
-            input {
-                border-right-color: $colorPrimary;
-            }
-
-            + .filters__input-to {
-                input {
-                    border-left-color: transparent;
-                }
-            }
-        }
-    }
-
-    &__input-to {
-        input {
-            padding-left: 48px;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-    }
-}
-
-/* mx-datepicker style */
-.mx-datepicker-wrap {
-    position: relative;
-    display: flex;
-    width: calc(50% - 8px);
-}
-
-.mx-datepicker {
-    position: relative;
-    width: 100%;
-    height: 56px;
-
-    &__input-from {
-        input {
-            padding-left: 48px;
-            border-right-color: transparent;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-
-            &:focus {
-                padding-left: 48px;
-            }
-        }
-
-        &:hover,
-        &:focus {
-            + .filters__input-to {
-                input {
-                    border-left-color: transparent;
-                }
-            }
-        }
-    }
-
-    &__input-to {
-        input {
-            padding-left: 48px;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-    }
-
-    &::before {
-        content: "до";
-        position: absolute;
-        z-index: 1;
-        top: 50%;
-        left: 24px;
-        font-family: $NotoSans;
-        font-size: 16px;
-        line-height: calc(24 / 16);
-        font-weight: 400;
-        color: $colorGray;
-        transform: translateY(-50%);
-    }
-
-    &:first-child {
-        &::before {
-            content: "от";
-        }
-    }
-
-    &:has(input:focus) {
-        &::before {
-            color: $colorDark;
-        }
-    }
-}
-
-.mx-input-wrapper {
-    height: 100%;
-}
-
-.mx-input {
-    height: 100%;
-    padding: 15px 48px;
-    font-family: $NotoSans;
-    font-size: 16px;
-    line-height: calc(24 / 16);
-    font-weight: 400;
-    color: $colorDark;
-    border: 1px solid $colorGrayLight;
-
-    &::placeholder {
-        color: $colorGray;
-    }
-}
-
-.mx-datepicker-label {
-    position: absolute;
-    z-index: 1;
-    top: -11px;
-    left: 16px;
-    padding: 0 8px;
-    font-size: 14px;
-    line-height: calc(22 / 14);
-    font-weight: 400;
-    color: $colorGrayHard;
-    background-color: $colorWhite;
-}
-
-.mx-icon-calendar {
-    z-index: 1;
-    right: 16px;
-    cursor: pointer;
-
-    &:hover {
-        svg {
-            fill: $colorPrimary;
-        }
-
-        .mx-input {
-            border-style: $colorGrayLight;
-        }
-    }
-
-    svg {
-        width: 24px;
-        height: 24px;
-        fill: $colorDark;
-        transition: 0.05s;
-    }
-}
-
-.mx-icon-clear {
-    z-index: 1;
-    right: 16px;
-    cursor: pointer;
-
-    &:hover {
-        svg {
-            fill: $colorPrimary;
-        }
-    }
-
-    svg {
-        width: 24px;
-        height: 24px;
-        fill: $colorDark;
-        transition: 0.05s;
-    }
-}
-
-.mx-calendar {
-    font-family: $NotoSans;
 }
