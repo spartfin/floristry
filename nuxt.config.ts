@@ -14,5 +14,13 @@ export default defineNuxtConfig({
             },
         },
     },
+
     modules: ["@nuxtjs/stylelint-module"],
+
+    components: [
+        {
+            path: "~/components",
+            pathPrefix: false,
+        },
+    ],
 });

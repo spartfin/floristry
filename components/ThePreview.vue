@@ -7,6 +7,10 @@
             <div class="preview__content">
                 <h1 class="preview__title">Флористика с душой</h1>
 
+                <my-button class="preview__button" :type="'light'"
+                    >смотреть работы</my-button
+                >
+
                 <a href="#catalog" class="preview__show-catalog">
                     смотреть каталог
 
@@ -87,6 +91,10 @@ import PreviewBg from "@/assets/image/preview/preview-bg.png";
     &__arrow {
         transform: rotate(-90deg);
         margin-left: 40px;
+    }
+
+    &__button {
+        margin: 80px auto 0;
     }
 }
 </style>

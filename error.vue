@@ -1,14 +1,9 @@
 <template>
-    <button @click="handleError">Вернуться на главную</button>
+    <NuxtLink class="error" to="/">Вернутся на главную</NuxtLink>
 </template>
 
-<script lang="ts" setup>
-const props = defineProps({
-    error: {
-        type: Object,
-        default: () => {},
-    },
-});
-
-const handleError = () => clearError({ redirect: "/" });
-</script>
+<style lang="scss" scoped>
+.error {
+    color: red;
+}
+</style>
