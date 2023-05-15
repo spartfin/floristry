@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-defineEmits(["show"]);
+defineEmits(['show']);
 
 defineProps({
     show: {
@@ -47,15 +47,15 @@ const scrollbarWidth = ref();
 
 const overflow = () => {
     if (props.show === true) {
-        document.querySelector("body").classList.add("is-overflow");
-        document.documentElement.classList.add("is-overflow");
-        document.querySelector("body").style.paddingRight =
-            scrollbarWidth.value + "px";
+        document.querySelector('body').classList.add('is-overflow');
+        document.documentElement.classList.add('is-overflow');
+        document.querySelector('body').style.paddingRight =
+            scrollbarWidth.value + 'px';
     } else if (props.show === false) {
         setTimeout(() => {
-            document.querySelector("body").classList.remove("is-overflow");
-            document.documentElement.classList.remove("is-overflow");
-            document.querySelector("body").style.paddingRight = 0;
+            document.querySelector('body').classList.remove('is-overflow');
+            document.documentElement.classList.remove('is-overflow');
+            document.querySelector('body').style.paddingRight = 0;
         }, 400);
     }
 };
@@ -63,14 +63,14 @@ const overflow = () => {
 // Высчитываем ширину скролла
 const getScrollbarWidth = () => {
     // Creating invisible container
-    const outer = document.createElement("div");
-    outer.style.visibility = "hidden";
-    outer.style.overflow = "scroll"; // forcing scrollbar to appear
-    outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+    const outer = document.createElement('div');
+    outer.style.visibility = 'hidden';
+    outer.style.overflow = 'scroll'; // forcing scrollbar to appear
+    outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
     document.body.appendChild(outer);
 
     // Creating inner element and placing it in the container
-    const inner = document.createElement("div");
+    const inner = document.createElement('div');
     outer.appendChild(inner);
 
     // Calculating difference between container's full width and the child width

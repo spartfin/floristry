@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import PreviewBg from "@/assets/image/preview/preview-bg.png";
+import PreviewBg from '@/assets/image/preview/preview-bg.png';
 </script>
 
 <style lang="scss" scoped>
@@ -30,18 +30,18 @@ import PreviewBg from "@/assets/image/preview/preview-bg.png";
     .container {
         position: relative;
         background-repeat: no-repeat;
-        background-size: cover;
         background-position: 50% 50%;
+        background-size: cover;
 
         &::before {
+            content: '';
             position: absolute;
-            content: "";
+            bottom: 0;
             left: 0;
             right: 0;
-            bottom: 0;
             width: 100%;
             height: 85px;
-            background: linear-gradient(0deg, #3b181e 3.33%,rgba(59, 24, 30, 0) 100%);
+            background: linear-gradient(0deg, #3b181e 3.33%, rgba(59, 24, 30, 0) 100%);
         }
     }
 
@@ -55,16 +55,16 @@ import PreviewBg from "@/assets/image/preview/preview-bg.png";
         font-size: 120px;
         line-height: calc(120 / 132);
         font-weight: 400;
-        text-align: center;
         letter-spacing: 0.09em;
         text-transform: uppercase;
+        text-align: center;
         margin: 0 auto;
     }
 
     &__show-catalog {
         position: absolute;
-        right: 0;
         bottom: 160px;
+        right: 0;
         display: flex;
         align-items: center;
         transform: rotate(90deg);

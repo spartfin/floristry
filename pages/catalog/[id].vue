@@ -10,6 +10,6 @@
 
 <style lang="scss" scoped>
 .card {
-    color: black;
+    color: #000;
 }
 </style>

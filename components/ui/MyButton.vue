@@ -9,12 +9,12 @@
 </template>
 
 <script setup>
-defineEmits(["click"]);
+defineEmits(['click']);
 
 defineProps({
     type: {
         type: String,
-        default: "default",
+        default: 'default',
     },
 });
 </script>

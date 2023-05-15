@@ -4,6 +4,6 @@
 
 <style lang="scss" scoped>
 .error {
-    color: red;
+    color: rgb(255, 111, 0);
 }
 </style>

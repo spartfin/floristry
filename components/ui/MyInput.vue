@@ -48,28 +48,28 @@
 </template>
 
 <script setup>
-defineEmits(["focus", "blur", "input"]);
+defineEmits(['focus', 'blur', 'input']);
 
 defineProps({
     type: {
         type: String,
         required: false,
-        default: "text",
+        default: 'text',
     },
     label: {
         type: String,
         required: false,
-        default: "",
+        default: '',
     },
     placeholder: {
         type: String,
         required: false,
-        default: "",
+        default: '',
     },
     value: {
         type: String,
         required: false,
-        default: "",
+        default: '',
     },
     isError: {
         type: Boolean,
@@ -79,7 +79,7 @@ defineProps({
     errorFeedback: {
         type: String,
         required: false,
-        default: "",
+        default: '',
     },
     eye: {
         type: Boolean,
@@ -99,7 +99,7 @@ defineProps({
 
 <script>
 export default {
-    name: "MyInput",
+    name: 'MyInput',
 };
 </script>
 
