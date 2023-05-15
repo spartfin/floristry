@@ -1,5 +1,7 @@
 module.exports = {
-    plugins: [],
+    modules: [
+        '@nuxtjs/stylelint-module',
+    ],
     customSyntax: "postcss-scss",
     overrides: [
         {
@@ -7,5 +9,5 @@ module.exports = {
             customSyntax: "postcss-html",
         },
     ],
-    rules: {},
+    rules: {}
 };

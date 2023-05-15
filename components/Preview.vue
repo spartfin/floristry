@@ -1,30 +1,16 @@
 <template>
     <section class="preview">
-        <div
-            class="container"
-            :style="{ backgroundImage: `url('${PreviewBg}')` }"
-        >
+        <div class="container" :style="{ backgroundImage: `url('${PreviewBg}')` }">
             <div class="preview__content">
                 <h1 class="preview__title">Флористика с душой</h1>
 
-                <my-button class="preview__button" :type="'light'"
-                    >смотреть работы</my-button
-                >
+                <my-button class="preview__button" :type="'light'">смотреть работы</my-button>
 
                 <a href="#catalog" class="preview__show-catalog">
                     смотреть каталог
 
-                    <svg
-                        class="preview__arrow"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="21"
-                        fill="none"
-                    >
-                        <path
-                            stroke="#fff"
-                            d="M7 19.972 1.197 14.06M7 19.973l5.797-5.687M7 19.972 7.18 1"
-                        />
+                    <svg class="preview__arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="21" fill="none">
+                        <path stroke="#fff" d="M7 19.972 1.197 14.06M7 19.973l5.797-5.687M7 19.972 7.18 1" />
                     </svg>
                 </a>
             </div>
@@ -55,11 +41,7 @@ import PreviewBg from "@/assets/image/preview/preview-bg.png";
             bottom: 0;
             width: 100%;
             height: 85px;
-            background: linear-gradient(
-                0deg,
-                #3b181e 3.33%,
-                rgba(59, 24, 30, 0) 100%
-            );
+            background: linear-gradient(0deg, #3b181e 3.33%,rgba(59, 24, 30, 0) 100%);
         }
     }
 

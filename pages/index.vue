@@ -1,3 +1,3 @@
 <template>
-    <ThePreview />
+    <Preview />
 </template>
