@@ -161,7 +161,7 @@ export default {
         &:hover,
         &:active {
             path {
-                stroke: $colorPrimary;
+                stroke: $colorBurgundy;
             }
         }
     }

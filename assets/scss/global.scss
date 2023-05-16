@@ -1,8 +1,8 @@
 @include fontface(Forum, Forum, Forum, 400, 'normal');
 
 ::selection {
-    color: $colorWhite;
-    background: $colorPrimary;
+    color: $colorBurgundy;
+    background: $colorWhite;
 }
 
 html {
@@ -25,6 +25,7 @@ body {
     line-height: calc(18 / 27);
     font-weight: 400;
     color: $colorWhite;
+    background-color: $colorBurgundy;
     pointer-events: unset !important;
     overflow: hidden scroll;
 
@@ -91,7 +92,7 @@ textarea {
     line-height: calc(20 / 22);
     font-weight: 400;
     color: $colorWhite;
-    border: 1px solid $colorGrayDark;
+    border: 1px solid $colorBurgundy;
     transition: border 0.45s $easeInOutCirc;
 
     &::-ms-clear {

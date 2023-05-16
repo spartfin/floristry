@@ -6,6 +6,8 @@
 
                 <my-button class="preview__button" :type="'light'">смотреть работы</my-button>
 
+                <Social lass="preview__social-list" />
+
                 <a href="#catalog" class="preview__show-catalog">
                     смотреть каталог
 
@@ -28,7 +30,6 @@ import PreviewBg from '@/assets/image/preview/preview-bg.png';
     height: 1044px;
 
     .container {
-        position: relative;
         background-repeat: no-repeat;
         background-position: 50% 50%;
         background-size: cover;
@@ -46,6 +47,7 @@ import PreviewBg from '@/assets/image/preview/preview-bg.png';
     }
 
     &__content {
+        position: relative;
         height: 100%;
     }
 
@@ -63,8 +65,8 @@ import PreviewBg from '@/assets/image/preview/preview-bg.png';
 
     &__show-catalog {
         position: absolute;
-        bottom: 160px;
-        right: 0;
+        bottom: 230px;
+        right: -96px;
         display: flex;
         align-items: center;
         transform: rotate(90deg);
