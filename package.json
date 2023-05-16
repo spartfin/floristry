@@ -6,28 +6,28 @@
         "dev": "nuxt dev",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
-        "lint": "eslint --fix --ext .js,.vue",
-        "eslint": "eslint --ext .js,.vue --ignore-path .eslintignore .",
+        "lint": "eslint --fix --ext .ts,.js,.vue",
+        "eslint": "eslint --ext .ts,.js,.vue --ignore-path .eslintignore .",
         "stylelint": "stylelint **/*.{scss,vue}"
-
     },
     "pre-commit": [
         "eslint",
         "stylelint"
     ],
     "devDependencies": {
-        "@babel/eslint-parser": "^7.21.8",
+        "@nuxtjs/eslint-config-typescript": "^12.0.0",
+        "@typescript-eslint/parser": "^5.59.5",
         "@nuxtjs/eslint-config": "^12.0.0",
         "@nuxtjs/eslint-module": "^4.0.2",
         "@nuxtjs/stylelint-module": "^5.0.1",
         "nuxt": "^3.4.3",
         "postcss-html": "^1.5.0",
         "postcss-scss": "^4.0.6",
+        "pre-commit": "^1.2.2",
         "sass": "^1.62.0",
         "sass-loader": "^10.4.1",
         "stylelint": "^15.6.1",
         "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
-        "stylelint-order": "^6.0.3",
-        "pre-commit": "^1.2.2"
+        "stylelint-order": "^6.0.3"
     }
 }

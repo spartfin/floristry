@@ -6,16 +6,16 @@ module.exports = {
         es6: true,
     },
     parserOptions: {
-        parser: '@babel/eslint-parser',
+        parser: '@typescript-eslint/parser',
         sourceType: 'module',
         requireConfigFile: false,
     },
     extends: [
-        '@nuxtjs/eslint-config',
+        '@nuxtjs/eslint-config-typescript',
     ],
     rules: {
-        'vue/multi-word-component-names': 'off',
-        'linebreak-style': ['off', 'windows'],
+        'vue/multi-word-component-names': ['off'],
+        '@typescript-eslint/no-unused-vars': ['off'],
         indent: ['error', 4],
         'no-new': 'off',
         'max-len': 'off',
