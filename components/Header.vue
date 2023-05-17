@@ -19,6 +19,28 @@
         </div>
 
         <my-modal class="header__modal" :show="active" @show="close">
+            <div class="header__modal-content">
+                <svg-icon class="header__modal-logo" name="logo" />
+
+                <ul class="header__modal-list">
+                    <li class="header__modal-item">
+                        <nuxt-link class="header__modal-link" to="/">свадебная<br>флористика</nuxt-link>
+                    </li>
+
+                    <li class="header__modal-item">
+                        <nuxt-link class="header__modal-link" to="/">букеты на любые<br>мероприятия</nuxt-link>
+                    </li>
+
+                    <li class="header__modal-item">
+                        <nuxt-link class="header__modal-link" to="/">композиции</nuxt-link>
+                    </li>
+
+                    <li class="header__modal-item">
+                        <nuxt-link class="header__modal-link" to="/">оформление<br>мероприятий</nuxt-link>
+                    </li>
+                </ul>
+            </div>
+
             <Social lass="header__social" />
         </my-modal>
     </section>
@@ -33,15 +55,33 @@ const close = (data: boolean) => {
 
 <style lang="scss">
 .header {
+    @include mq(767) {
+        background-color: $colorBurgundy;
+    }
+
     &__content {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding-top: 80px;
+
+        @include mq(1023) {
+            padding-top: 38px;
+        }
+
+        @include mq(767) {
+            padding: 15px 14px 20px;
+        }
     }
 
     &__logo {
         width: 137px;
         height: 47px;
+
+        @include mq(767) {
+            width: 96px;
+            height: 29px;
+        }
 
         &:hover {
             opacity: 0.7;
@@ -64,11 +104,23 @@ const close = (data: boolean) => {
         display: flex;
         flex-direction: column;
         margin-right: 15px;
+
+        @include mq(1023) {
+            margin-right: 0;
+        }
     }
 
     &__line {
         width: 23px;
         height: 2px;
+
+        @include mq(1023) {
+            width: 35px;
+        }
+
+        @include mq(767) {
+            width: 37px;
+        }
 
         &:first-child {
             margin-bottom: 6px;
@@ -81,6 +133,43 @@ const close = (data: boolean) => {
         font-weight: 400;
         letter-spacing: 0.06em;
         text-transform: uppercase;
+
+        @include mq(1023) {
+            display: none;
+        }
+    }
+
+    &__modal-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 96px;
+    }
+
+    &__modal-logo {
+        width: 158px;
+        height: 49px;
+        margin-bottom: 200px;
+    }
+
+    &__modal-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__modal-item {
+        display: flex;
+        margin-bottom: 72px;
+    }
+
+    &__modal-link {
+        font-size: 35px;
+        line-height: calc(39 / 35);
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
     }
 
     .social__list {

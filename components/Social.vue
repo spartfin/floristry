@@ -35,15 +35,54 @@
         display: flex;
         flex-direction: column;
         width: max-content;
+
+        @include mq(1023) {
+            position: static;
+            flex-direction: row;
+            margin: 211px auto 42px;
+        }
+
+        @include mq(767) {
+            position: static;
+            flex-direction: row;
+            margin: 70px auto 32px;
+        }
     }
 
     &__item {
         margin-bottom: 24px;
+
+        @include mq(1023) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: $colorBurgundy;
+            margin: 0 80px 0 0;
+
+            @include mq(767) {
+                width: 35px;
+                height: 35px;
+                margin: 0 40px 0 0;
+            }
+
+            &:last-child {
+                margin: 0;
+            }
+        }
     }
 
     &__icon {
+        display: block;
         width: 27px;
         height: 27px;
+
+        @include mq(767) {
+            width: 18px;
+            height: 18px;
+        }
 
         &:hover {
             opacity: 0.5;

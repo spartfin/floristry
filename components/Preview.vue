@@ -1,6 +1,6 @@
 <template>
     <section class="preview">
-        <div class="container" :style="{ backgroundImage: `url('${PreviewBg}')` }">
+        <div class="container" :style="{ backgroundImage: `url('${width > 1023 ? PreviewBg : PreviewBgTablet}')` }">
             <div class="preview__content">
                 <h1 class="preview__title">Флористика с душой</h1>
 
@@ -15,6 +15,10 @@
                         <path stroke="#fff" d="M7 19.972 1.197 14.06M7 19.973l5.797-5.687M7 19.972 7.18 1" />
                     </svg>
                 </a>
+
+                <svg-icon class="preview__mouse-icon" name="mouse" />
+
+                <svg-icon class="preview__arrow-icon" name="arrow" />
             </div>
         </div>
     </section>
@@ -22,6 +26,17 @@
 
 <script setup>
 import PreviewBg from '@/assets/image/preview/preview-bg.png';
+import PreviewBgTablet from '@/assets/image/preview/preview-bg-tablet.png';
+
+const width = ref();
+
+onMounted(() => {
+    const { windowWidth } = updateWidth();
+
+    watchEffect(() => {
+        width.value = windowWidth.value;
+    });
+});
 </script>
 
 <style lang="scss" scoped>
@@ -29,10 +44,23 @@ import PreviewBg from '@/assets/image/preview/preview-bg.png';
     display: flex;
     height: 1044px;
 
+    @include mq(1023) {
+        height: 1024px;
+    }
+
+    @include mq(767) {
+        height: 480px;
+    }
+
     .container {
         background-repeat: no-repeat;
         background-position: 50% 50%;
         background-size: cover;
+
+        @include mq(1023) {
+            background-position: center;
+            background-size: 190%;
+        }
 
         &::before {
             content: '';
@@ -43,6 +71,10 @@ import PreviewBg from '@/assets/image/preview/preview-bg.png';
             width: 100%;
             height: 85px;
             background: linear-gradient(0deg, #3b181e 3.33%, rgba(59, 24, 30, 0) 100%);
+
+            @include mq(1023) {
+                content: none;
+            }
         }
     }
 
@@ -61,6 +93,18 @@ import PreviewBg from '@/assets/image/preview/preview-bg.png';
         text-transform: uppercase;
         text-align: center;
         margin: 0 auto;
+
+        @include mq(1023) {
+            max-width: 567px;
+            padding-top: 321px;
+            font-size: 70px;
+        }
+
+        @include mq(767) {
+            max-width: 238px;
+            padding-top: 167px;
+            font-size: 30px;
+        }
     }
 
     &__show-catalog {
@@ -70,6 +114,10 @@ import PreviewBg from '@/assets/image/preview/preview-bg.png';
         display: flex;
         align-items: center;
         transform: rotate(90deg);
+
+        @include mq(1023) {
+            display: none;
+        }
     }
 
     &__arrow {
@@ -79,6 +127,38 @@ import PreviewBg from '@/assets/image/preview/preview-bg.png';
 
     &__button {
         margin: 80px auto 0;
+
+        @include mq(767) {
+            margin: 35px auto 0;
+        }
+    }
+
+    &__mouse-icon {
+        display: block;
+        width: 37px;
+        height: 56px;
+        margin: 157px auto 0;
+
+        @include mq(1023) {
+            display: none;
+        }
+    }
+
+    &__arrow-icon {
+        display: none;
+
+        @include mq(1023) {
+            display: block;
+            width: 27px;
+            height: 43px;
+            margin: 48px auto 0;
+        }
+
+        @include mq(767) {
+            width: 13px;
+            height: 21px;
+            margin: 32px auto 0;
+        }
     }
 }
 </style>

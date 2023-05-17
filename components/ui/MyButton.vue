@@ -57,7 +57,7 @@ defineProps({
     }
 
     &__light {
-        background-color: $colorBlack;
+        background-color: rgba(0, 0, 0, 0.4);
     }
 
     &__dark {

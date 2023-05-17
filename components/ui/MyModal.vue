@@ -49,7 +49,7 @@ const props = defineProps({
 
     &__close {
         position: absolute;
-        top: 104px;
+        top: 96px;
         right: 96px;
         width: 30px;
         height: 30px;
