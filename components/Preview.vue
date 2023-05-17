@@ -49,7 +49,7 @@ onMounted(() => {
     }
 
     @include mq(767) {
-        height: 480px;
+        height: 530px;
     }
 
     .container {

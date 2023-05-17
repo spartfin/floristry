@@ -41,7 +41,7 @@
                 </ul>
             </div>
 
-            <Social lass="header__social" />
+            <Social />
         </my-modal>
     </section>
 </template>
@@ -144,12 +144,32 @@ const close = (data: boolean) => {
         flex-direction: column;
         align-items: center;
         margin-top: 96px;
+
+        @include mq(1023) {
+            margin-top: 112px;
+        }
+
+        @include mq(767) {
+            margin-top: 25px;
+        }
     }
 
     &__modal-logo {
         width: 158px;
         height: 49px;
         margin-bottom: 200px;
+
+        @include mq(1023) {
+            width: 137px;
+            height: 47px;
+            margin-bottom: 148px;
+        }
+
+        @include mq(767) {
+            width: 96px;
+            height: 29px;
+            margin-bottom: 74px;
+        }
     }
 
     &__modal-list {
@@ -161,6 +181,14 @@ const close = (data: boolean) => {
     &__modal-item {
         display: flex;
         margin-bottom: 72px;
+
+        @include mq(1023) {
+            margin-bottom: 56px;
+        }
+
+        @include mq(767) {
+            margin-bottom: 48px;
+        }
     }
 
     &__modal-link {
@@ -170,12 +198,28 @@ const close = (data: boolean) => {
         text-transform: uppercase;
         text-align: center;
         color: rgba(255, 255, 255, 0.5);
+
+        @include mq(1023) {
+            font-size: 30px;
+        }
+
+        @include mq(767) {
+            font-size: 15px;
+        }
+
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 
     .social__list {
         position: absolute;
         bottom: 96px;
         left: 96px;
+
+        @include mq(1023) {
+            display: none;
+        }
     }
 }
 </style>

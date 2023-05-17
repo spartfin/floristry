@@ -43,8 +43,6 @@ const props = defineProps({
             width: 0;
             height: 0;
         }
-
-        @include mq(767) {}
     }
 
     &__close {
@@ -55,6 +53,18 @@ const props = defineProps({
         height: 30px;
         transition: 0.3s;
         cursor: pointer;
+
+        @include mq(1023) {
+            top: 40px;
+            right: 40px;
+            width: 21px;
+            height: 21px;
+        }
+
+        @include mq(767) {
+            top: 25px;
+            right: 25px;
+        }
 
         &:hover {
             opacity: 0.7;
