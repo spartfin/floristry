@@ -2,7 +2,7 @@
     <section class="header">
         <div class="container">
             <div class="header__content">
-                <nuxt-link class="header__link" to="/">
+                <nuxt-link class="header__link" to="/" aria-label="На главную">
                     <svg-icon class="header__logo" name="logo" />
                 </nuxt-link>
 

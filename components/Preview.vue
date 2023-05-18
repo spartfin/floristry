@@ -1,7 +1,7 @@
 <template>
     <section class="preview">
         <div class="container" :style="{ backgroundImage: `url('${PreviewBg}')` }">
-            <a class="preview__content">
+            <div class="preview__content">
                 <h1 class="preview__title">Флористика с душой</h1>
 
                 <my-button class="preview__button" :type="'light'">смотреть работы</my-button>
@@ -20,8 +20,10 @@
                     <svg-icon class="preview__mouse-icon" name="mouse" />
                 </a>
 
-                <svg-icon class="preview__arrow-icon" name="arrow" />
-            </a>
+                <a href="#catalog">
+                    <svg-icon class="preview__arrow-icon" name="arrow" />
+                </a>
+            </div>
         </div>
     </section>
 </template>
