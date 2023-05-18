@@ -1,6 +1,6 @@
 <template>
     <section class="preview">
-        <div class="container" :style="{ backgroundImage: `url('${width > 1023 ? PreviewBg : PreviewBgTablet}')` }">
+        <div class="container" :style="{ backgroundImage: `url('${PreviewBg}')` }">
             <div class="preview__content">
                 <h1 class="preview__title">Флористика с душой</h1>
 
@@ -25,18 +25,7 @@
 </template>
 
 <script setup>
-import PreviewBg from '@/assets/image/preview/preview-bg.png';
-import PreviewBgTablet from '@/assets/image/preview/preview-bg-tablet.png';
-
-const width = ref();
-
-onMounted(() => {
-    const { windowWidth } = updateWidth();
-
-    watchEffect(() => {
-        width.value = windowWidth.value;
-    });
-});
+import PreviewBg from '@/assets/image/preview/preview-bg.webp';
 </script>
 
 <style lang="scss" scoped>

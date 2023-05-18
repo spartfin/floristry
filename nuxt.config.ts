@@ -19,6 +19,7 @@ export default defineNuxtConfig({
         '@nuxtjs/stylelint-module',
         '@nuxtjs/eslint-module',
         '@nuxtjs/svg-sprite',
+        'nuxt-swiper',
     ],
 
     components: [

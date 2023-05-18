@@ -1,3 +1,7 @@
 <template>
-    <Preview />
+    <div>
+        <Preview />
+
+        <Catalog />
+    </div>
 </template>
