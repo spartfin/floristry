@@ -24,19 +24,19 @@
 
                 <ul class="header__modal-list">
                     <li class="header__modal-item">
-                        <nuxt-link class="header__modal-link" to="/">свадебная<br>флористика</nuxt-link>
+                        <nuxt-link class="header__modal-link" to="/wedding-decoration">свадебная<br>флористика</nuxt-link>
                     </li>
 
                     <li class="header__modal-item">
-                        <nuxt-link class="header__modal-link" to="/">букеты на любые<br>мероприятия</nuxt-link>
+                        <nuxt-link class="header__modal-link" to="/bouquets-for-celebrations">букеты на любые<br>мероприятия</nuxt-link>
                     </li>
 
                     <li class="header__modal-item">
-                        <nuxt-link class="header__modal-link" to="/">композиции</nuxt-link>
+                        <nuxt-link class="header__modal-link" to="/compositions">композиции</nuxt-link>
                     </li>
 
                     <li class="header__modal-item">
-                        <nuxt-link class="header__modal-link" to="/">оформление<br>мероприятий</nuxt-link>
+                        <nuxt-link class="header__modal-link" to="/event-design">оформление<br>мероприятий</nuxt-link>
                     </li>
                 </ul>
             </div>

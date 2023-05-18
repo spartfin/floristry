@@ -1,7 +1,7 @@
 <template>
     <section class="preview">
         <div class="container" :style="{ backgroundImage: `url('${PreviewBg}')` }">
-            <div class="preview__content">
+            <a class="preview__content">
                 <h1 class="preview__title">Флористика с душой</h1>
 
                 <my-button class="preview__button" :type="'light'">смотреть работы</my-button>
@@ -16,16 +16,18 @@
                     </svg>
                 </a>
 
-                <svg-icon class="preview__mouse-icon" name="mouse" />
+                <a href="#catalog">
+                    <svg-icon class="preview__mouse-icon" name="mouse" />
+                </a>
 
                 <svg-icon class="preview__arrow-icon" name="arrow" />
-            </div>
+            </a>
         </div>
     </section>
 </template>
 
 <script setup>
-import PreviewBg from '@/assets/image/preview/preview-bg.webp';
+import PreviewBg from '@/assets/images/preview/preview-bg.webp';
 </script>
 
 <style lang="scss" scoped>
@@ -42,6 +44,7 @@ import PreviewBg from '@/assets/image/preview/preview-bg.webp';
     }
 
     .container {
+        position: relative;
         background-repeat: no-repeat;
         background-position: 50% 50%;
         background-size: cover;
@@ -54,7 +57,7 @@ import PreviewBg from '@/assets/image/preview/preview-bg.webp';
         &::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -2px;
             left: 0;
             right: 0;
             width: 100%;
@@ -104,6 +107,10 @@ import PreviewBg from '@/assets/image/preview/preview-bg.webp';
         align-items: center;
         transform: rotate(90deg);
 
+        &:hover {
+            opacity: 0.7;
+        }
+
         @include mq(1023) {
             display: none;
         }
@@ -127,6 +134,10 @@ import PreviewBg from '@/assets/image/preview/preview-bg.webp';
         width: 37px;
         height: 56px;
         margin: 157px auto 0;
+
+        &:hover {
+            opacity: 0.7;
+        }
 
         @include mq(1023) {
             display: none;

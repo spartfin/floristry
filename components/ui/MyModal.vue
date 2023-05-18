@@ -19,6 +19,16 @@ const props = defineProps({
         default: false,
     },
 });
+
+onMounted(() => {
+    watchEffect(() => {
+        if (props.show) {
+            document.body.classList.add('is-overflow');
+        } else {
+            document.body.classList.remove('is-overflow');
+        }
+    });
+});
 </script>
 
 <style lang="scss" scoped>

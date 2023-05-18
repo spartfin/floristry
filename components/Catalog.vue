@@ -1,60 +1,237 @@
 <template>
-    <section>
-        <h2>Swiper Card Effect</h2>
+    <section id="catalog" class="catalog">
+        <div class="container">
+            <div class="catalog__content">
+                <h2 class="catalog__title">Каталог услуг</h2>
 
-        <Swiper
-            class="swiper-cards"
-            :width="240"
-            :modules="[SwiperAutoplay, SwiperEffectCards]"
-            :slides-per-view="1"
-            :loop="true"
-            :effect="'cards'"
-            :autoplay="{delay: 8000, disableOnInteraction: true}"
-        >
-            <SwiperSlide
-                v-for="(slide, idx) in slides"
-                :key="idx"
-                :style="`background-color: ${slide.bg}; color: ${slide.color}`"
-            >
-                {{ idx }}
-            </SwiperSlide>
-        </Swiper>
+                <carousel v-if="data.catalog.services" class="catalog__carousel" v-bind="settings" :breakpoints="breakpoints">
+                    <slide v-for="(slide, index) in data.catalog.services" :key="index" class="catalog__slide">
+                        <div class="catalog__slide-content" :style="{ backgroundImage: `url('/images/catalog/${slide.id}.png')` }"></div>
+                    </slide>
+
+                    <template #addons>
+                        <Pagination class="catalog__slide-pagination" />
+                        <Navigation class="catalog__slide-navigation" />
+                    </template>
+                </carousel>
+            </div>
+        </div>
     </section>
 </template>
 
 <script setup>
-const slides = ref(Array.from({ length: 10 }, () => {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    // Figure out contrast color for font
-    const contrast = r * 0.299 + g * 0.587 + b * 0.114 > 186 ? 'black' : 'white';
+import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 
-    return { bg: `rgb(${r}, ${g}, ${b})`, color: contrast };
-}));
+const { data } = await useFetch('/api/catalog');
+
+const settings = {
+    itemsToShow: 1,
+    mouseDrag: false,
+    wrapAround: true,
+};
+
+const breakpoints = {
+    768: {
+        itemsToShow: 2,
+    },
+    1200: {
+        itemsToShow: 3,
+    },
+    1600: {
+        itemsToShow: 4,
+        wrapAround: false,
+    },
+};
 </script>
 
-<style>
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20vh;
-    font-size: 18px;
-}
+<style lang="scss">
+.catalog {
+    position: relative;
 
-.swiper-wrapper {
-    width: 100vh;
-    min-width: 100vh;
-}
+    &::before {
+        content: 'каталог услуг';
+        position: absolute;
+        top: 188px;
+        left: 50%;
+        font-size: 220px;
+        line-height: calc(243 / 220);
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        opacity: 0.03;
+        transform: translateX(-50%);
 
-.swiper-cards {
-    width: 240px;
-    height: 240px;
-}
+        @include mq(1680) {
+            top: 200px;
+            font-size: 160px;
+        }
 
-.swiper-cards .swiper-slide {
-    border: 1px solid #000;
-    border-radius: 6px;
+        @include mq(1200) {
+            top: 210px;
+            font-size: 120px;
+        }
+
+        @include mq(1023) {
+            content: none;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 170px 0;
+
+        @include mq(1023) {
+            padding: 100px 0;
+        }
+    }
+
+    &__title {
+        position: relative;
+        font-size: 30px;
+        line-height: calc(33 / 30);
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 120px;
+
+        @include mq(1023) {
+            margin-bottom: 52px;
+        }
+
+        @include mq(767) {
+            display: block;
+            width: 100%;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            width: 86px;
+            height: 2px;
+            background-color: $colorWhite;
+            transform: translateX(-50%);
+
+            @include mq(767) {
+                content: none;
+            }
+        }
+    }
+
+    &__carousel {
+        width: 100%;
+    }
+
+    &__slide {
+        padding: 0 30px;
+
+        @include mq(1440) {
+            padding: 0 10px;
+        }
+
+        @include mq(767) {
+            padding: 0;
+        }
+    }
+
+    &__slide-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 450px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+
+        @include mq(767) {
+            height: 392px;
+        }
+    }
+
+    &__slide-pagination {
+        display: none;
+
+        @include mq(1023) {
+            display: flex;
+            margin: 30px 0 0;
+        }
+
+        @include mq(767) {
+            display: flex;
+            margin: 20px 0 0;
+        }
+    }
+
+    &__slide-navigation {
+        display: none;
+
+        @include mq(1600) {
+            display: flex;
+        }
+
+        @include mq(1023) {
+            display: none;
+        }
+    }
+
+    .carousel__next {
+        right: -50px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $colorWhite;
+        transition: 0.3s;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    .carousel__prev {
+        left: -50px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $colorWhite;
+        transition: 0.3s;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    .carousel__pagination-item {
+        width: 63px;
+        margin-right: 12px;
+
+        @include mq(767) {
+            width: 100%;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .carousel__pagination-button {
+        width: 100%;
+        height: 3px;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.3);
+
+        &--active {
+            background: $colorWhite;
+        }
+
+        &::after {
+            content: none;
+        }
+    }
 }
 </style>
