@@ -20,6 +20,7 @@ export default defineNuxtConfig({
             preprocessorOptions: {
                 scss: {
                     additionalData: `
+                        @use "sass:math";
                         @import "@/assets/scss/_mixins.scss";
                         @import "@/assets/scss/_variables.scss";
                     `,
@@ -32,6 +33,7 @@ export default defineNuxtConfig({
         '@nuxtjs/stylelint-module',
         '@nuxtjs/eslint-module',
         '@nuxtjs/svg-sprite',
+        '@nuxt/image-edge',
     ],
 
     components: [

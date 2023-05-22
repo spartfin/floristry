@@ -3,5 +3,7 @@
         <Preview />
 
         <Catalog />
+
+        <Stock />
     </div>
 </template>

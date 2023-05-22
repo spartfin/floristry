@@ -86,14 +86,18 @@ input,
 textarea {
     display: block;
     width: 100%;
-    padding: 20px 32px;
+    padding: 14px 22px;
     font-family: $Forum;
-    font-size: 20px;
-    line-height: calc(20 / 22);
+    font-size: 14px;
+    line-height: calc(15 / 14);
     font-weight: 400;
     color: $colorWhite;
-    border: 1px solid $colorBurgundy;
-    transition: border 0.45s $easeInOutCirc;
+    border: 1px solid rgba(246, 246, 249, 0.2);
+    transition: border 0.3s $easeInOutCirc;
+
+    @include mq(1023) {
+        padding: 20px 32px;
+    }
 
     &::-ms-clear {
         display: none;

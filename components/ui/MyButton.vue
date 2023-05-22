@@ -68,6 +68,13 @@ defineProps({
     &__white {
         color: $colorBlack;
         background-color: $colorWhite;
+
+        &:hover,
+        &:active {
+            color: $colorWhite;
+            border: 1px solid $colorBlack;
+            background-color: $colorBlack;
+        }
     }
 }
 </style>

@@ -200,6 +200,13 @@ const breakpoints = {
     &__slide-button {
         display: none !important;
         margin: 20px 0 15px;
+
+        &:hover,
+        &:active {
+            color: $colorBlack;
+            border: 1px solid $colorWhite;
+            background-color: $colorWhite;
+        }
     }
 
     &__slide-pagination {
