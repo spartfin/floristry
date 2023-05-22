@@ -55,21 +55,19 @@ onMounted(() => {
         if (props.show) {
             document.body.style.paddingRight = getScrollbarWidth() + 'px';
             document.body.classList.add('is-overflow');
+
+            // Закрываем попап по нажатию на клавишу ESC
+            window.addEventListener('keydown', e => {
+                const KEY_ESC = 27;
+
+                if (e.keyCode === KEY_ESC) {
+                    emit('show', false);
+                }
+            });
         } else {
             document.body.style.paddingRight = 0;
             document.body.classList.remove('is-overflow');
         }
-
-        // Закрываем попап по нажатию на клавишу ESC
-        window.addEventListener('keydown', e => {
-            const KEY_ESC = 27;
-
-            if (e.keyCode === KEY_ESC) {
-                emit('show', false);
-                document.body.style.paddingRight = 0;
-                document.body.classList.remove('is-overflow');
-            }
-        });
     });
 });
 </script>

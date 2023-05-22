@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-defineEmits(['show']);
+const emit = defineEmits(['show']);
 
 const props = defineProps({
     show: {
@@ -24,6 +24,15 @@ onMounted(() => {
     watchEffect(() => {
         if (props.show) {
             document.body.classList.add('is-overflow');
+
+            // Закрываем попап по нажатию на клавишу ESC
+            window.addEventListener('keydown', e => {
+                const KEY_ESC = 27;
+
+                if (e.keyCode === KEY_ESC) {
+                    emit('show', false);
+                }
+            });
         } else {
             document.body.classList.remove('is-overflow');
         }
