@@ -4,7 +4,7 @@
             <div class="preview__content">
                 <h1 class="preview__title">Флористика с душой</h1>
 
-                <my-button class="preview__button" :type="'light'">смотреть работы</my-button>
+                <my-button class="preview__button" :type="'light'" @click="$router.push('#catalog')">смотреть работы</my-button>
 
                 <Social lass="preview__social-list" />
 

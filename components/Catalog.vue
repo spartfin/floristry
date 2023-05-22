@@ -6,7 +6,13 @@
 
                 <carousel v-if="data.catalog.services" class="catalog__carousel" v-bind="settings" :breakpoints="breakpoints">
                     <slide v-for="(slide, index) in data.catalog.services" :key="index" class="catalog__slide">
-                        <div class="catalog__slide-content" :style="{ backgroundImage: `url('/images/catalog/${slide.id}.png')` }"></div>
+                        <nuxt-link class="catalog__slide-content" :to="slide.link" :style="{ backgroundImage: `url('/images/catalog/${slide.id}.png')` }">
+                            <span class="catalog__slide-number">{{ slide.id }}</span>
+
+                            <span class="catalog__slide-name">{{ slide.name }}</span>
+
+                            <my-button class="catalog__slide-button" :type="'white'">смотреть работы</my-button>
+                        </nuxt-link>
                     </slide>
 
                     <template #addons>
@@ -82,11 +88,7 @@ const breakpoints = {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 170px 0;
-
-        @include mq(1023) {
-            padding: 100px 0;
-        }
+        padding: 100px 0;
     }
 
     &__title {
@@ -144,14 +146,60 @@ const breakpoints = {
     &__slide-content {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         width: 100%;
         height: 450px;
+        padding: 36px 20px 15px;
         background-repeat: no-repeat;
+        background-position: center;
         background-size: 100%;
+        cursor: pointer;
 
         @include mq(767) {
             height: 392px;
+            padding: 23px 20px 15px;
         }
+
+        &:hover {
+            .catalog__slide-button {
+                display: flex !important;
+
+                @include mq(1023) {
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+    &__slide-number {
+        position: relative;
+        font-size: 20px;
+        line-height: calc(22 / 20);
+        text-transform: uppercase;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            right: -82px;
+            width: 70px;
+            height: 1px;
+            background-color: $colorWhite;
+        }
+    }
+
+    &__slide-name {
+        font-size: 16px;
+        line-height: calc(27 / 16);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: start;
+        margin-top: auto;
+    }
+
+    &__slide-button {
+        display: none !important;
+        margin: 20px 0 15px;
     }
 
     &__slide-pagination {

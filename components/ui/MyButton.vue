@@ -64,5 +64,10 @@ defineProps({
         border: 1px solid transparent;
         background-color: $colorBlack;
     }
+
+    &__white {
+        color: $colorBlack;
+        background-color: $colorWhite;
+    }
 }
 </style>
